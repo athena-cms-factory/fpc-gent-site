@@ -4,10 +4,10 @@
     "path": "/events",
     "title": "events",
     "images": [
-      "https://www.fpcnv.be/wp-content/themes/fpc/images/logo_share.jpg",
-      "https://www.fpcnv.be/wp-content/uploads/2017/08/Behandelen-en-beveiligen_Zorg-op-maat-e1501667022544-1920x1272.jpg"
+      "fpc-gebouw.jpg",
+      "fpc-gent.jpg"
     ],
-    "logo": "https://www.fpcnv.be/wp-content/themes/fpc/images/logo_share.jpg"
+    "logo": "images/logo-fpc-gent.png"
   },
   "content": {
     "raw_text": "Overzicht van events en opleidingen bij FPC.",

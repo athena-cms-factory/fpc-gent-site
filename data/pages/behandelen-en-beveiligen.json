@@ -14,21 +14,21 @@
       {
         "type": "hero",
         "content": {
-          "title": "Behandelen en beveiligen",
+          "titel": "Behandelen en beveiligen",
           "tagline": "FPC Antwerpen en FPC Gent hebben de ambitie om niet alleen kwalitatief hoogstaande, maar ook veilige zorg te leveren."
         }
       },
       {
         "type": "text_block",
         "content": {
-          "title": "Onze Visie",
+          "titel": "Onze Visie",
           "tekst": "Dit vertaalt zich in een uitgesproken visie van behandelen en beveiligen. Deze visie sluit aan bij de missie waarin de organisatie aangeeft te werken aan een veilige samenleving door het leveren van klinische, kwalitatieve zorg op maat door preventie, beveiliging, risicomanagement en behandeling, resocialisatie en rehabilitatie, wetenschappelijk onderzoek en opleiding."
         }
       },
       {
         "type": "features",
         "content": {
-          "title": "Onze Aanpak",
+          "titel": "Onze Aanpak",
           "items": [
             {
               "titel": "Zorg op maat",

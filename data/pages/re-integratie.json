@@ -4,13 +4,10 @@
     "path": "/re-integratie",
     "title": "re integratie",
     "images": [
-      "https://www.fpcnv.be/wp-content/themes/fpc/images/logo_share.jpg",
-      "https://www.fpcnv.be/wp-content/uploads/2017/07/integratie_doorstroom-cropped-626x150.jpg",
-      "https://www.fpcnv.be/wp-content/uploads/2017/07/integratie_ketenpartner-cropped-626x150.jpg",
-      "https://www.fpcnv.be/wp-content/uploads/2017/07/integratie_kennisdelen-cropped-626x150.jpg",
-      "https://www.fpcnv.be/wp-content/uploads/2017/08/Re-integratie-e1502096881805-1920x1280.jpg"
+      "fpc-gent.jpg",
+      "fpc-gebouw.jpg"
     ],
-    "logo": "https://www.fpcnv.be/wp-content/themes/fpc/images/logo_share.jpg"
+    "logo": "images/logo-fpc-gent.png"
   },
   "content": {
     "raw_text": "Re-integratie [LINK: https://www.fpcnv.be/] Home [/LINK] » Re-integratie Re-integratie kent veel tussenvormen, van doorstroom naar een minder beveiligde setting tot zelfstandig wonen en werken, uiteraard met passende nazorg. Een verblijf in een hoog beveiligd centrum met een intensief zorgaanbod heeft een belangrijke impact op een patiënt en zijn maatschappelijke integratie. Bij het aanbieden van (forensisch) psychiatrische zorg moet daarom systematisch gekozen worden voor de minst ingrijpende zorgvorm. [LINK: https://www.fpcnv.be/re-integratie/doorstroom-en-uitstroom/] Doorstroom en uitstroom [/LINK] Aan uitstroom (statuut invrijheidsstelling op proef, hetzij IOP) gaat een traject vooraf. Enerzijds is er de uitwerking van het re-integratietraject, anderzijds de interne doorstroom van de patiënt binnen het centrum. [LINK: https://www.fpcnv.be/re-integratie/samenwerking-ketenpartners/] Samenwerking ketenpartners [/LINK] Omdat de patiënt pas maximale slaagkansen krijgt wanneer er sprake is van een geïntegreerd netwerk binnen het zorgcircuit, streven FPC Antwerpen en FPC Gent naar een optimale samenwerking met ketenpartners. [LINK: https://www.fpcnv.be/re-integratie/kennisdelen/] Kennisdelen [/LINK] Een forensisch psychiatrisch centrum heeft een belangrijke rol in het organiseren van wederzijds kennisdelen.",
@@ -18,22 +15,22 @@
       {
         "type": "hero",
         "content": {
-          "title": "Re-integratie",
-          "tagline": null,
+          "titel": "Re-integratie",
+          "tagline": "Systematisch kiezen voor de minst ingrijpende zorgvorm.",
           "cta_text": null
         }
       },
       {
         "type": "text_block",
         "content": {
-          "title": "Onze visie op re-integratie",
+          "titel": "Onze visie op re-integratie",
           "tekst": "Re-integratie kent veel tussenvormen, van doorstroom naar een minder beveiligde setting tot zelfstandig wonen en werken, uiteraard met passende nazorg. Een verblijf in een hoog beveiligd centrum met een intensief zorgaanbod heeft een belangrijke impact op een patiënt en zijn maatschappelijke integratie. Bij het aanbieden van (forensisch) psychiatrische zorg moet daarom systematisch gekozen worden voor de minst ingrijpende zorgvorm."
         }
       },
       {
         "type": "features",
         "content": {
-          "title": "Onderdelen van het re-integratietraject",
+          "titel": "Onderdelen van het re-integratietraject",
           "items": [
             {
               "titel": "Doorstroom en uitstroom",
