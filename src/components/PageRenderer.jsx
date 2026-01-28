@@ -9,26 +9,26 @@ export default function PageRenderer({ file }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // 🔥 Robuuste Data Loading via Vite Glob
+    const pageModules = import.meta.glob('../../public/data/pages/*.json', { eager: true });
+    const dataModules = import.meta.glob('../data/*.json', { eager: true });
+
     // 1. Laden van data en styles
     useEffect(() => {
         const loadPage = async () => {
             setLoading(true);
             try {
-                const base = import.meta.env.BASE_URL;
+                // Vind de pagina module
+                const pageKey = Object.keys(pageModules).find(k => k.endsWith('/' + file));
+                if (!pageKey) throw new Error("Pagina data niet gevonden in bundel");
                 
-                // Fetch pagina data
-                const pageRes = await fetch(base + 'data/pages/' + file);
-                if (!pageRes.ok) throw new Error("Pagina data niet gevonden");
-                const pageData = await pageRes.json();
+                const pageData = pageModules[pageKey].default;
                 
-                // Fetch globale styles (indien aanwezig)
-                try {
-                    const styleRes = await fetch(base + 'src/data/style_bindings.json?t=' + Date.now());
-                    if (styleRes.ok) {
-                        const styleData = await styleRes.json();
-                        setStyles(styleData);
-                    }
-                } catch (e) { /* Geen styles gevonden */ }
+                // Vind de styles module
+                const styleKey = Object.keys(dataModules).find(k => k.endsWith('/style_bindings.json'));
+                if (styleKey) {
+                    setStyles(dataModules[styleKey].default);
+                }
 
                 setData(pageData);
                 setLoading(false);
