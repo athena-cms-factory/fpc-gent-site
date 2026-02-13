@@ -1,3 +1,4 @@
+import StyleInjector from './components/StyleInjector';
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import PageRenderer from './components/PageRenderer';
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
         <div className="min-h-screen flex flex-col bg-white">
+      <StyleInjector siteSettings={data['site_settings']} />
             <Header data={headerData} />
             
             <main className="flex-grow pt-28">
