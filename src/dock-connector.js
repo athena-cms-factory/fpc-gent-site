@@ -89,10 +89,15 @@
                     const dockType = el.getAttribute('data-dock-type') || (el.tagName === 'IMG' ? 'media' : 'text');
                     if (dockType === 'media') {
                         const src = (value && !value.startsWith('http') && !value.startsWith('/') && !value.startsWith('data:'))
-                            ? (baseUrl + 'images/' + value).replace(/\\/+/g, '/')
+                            ? `${baseUrl}images/${value}`.replace(/\/+/g, '/')
                             : value;
-                        const img = el.tagName === 'IMG' ? el : el.querySelector('img');
-                        if (img) img.src = src;
+                        const mediaEl = (el.tagName === 'IMG' || el.tagName === 'VIDEO') ? el : el.querySelector('img, video');
+                        if (mediaEl) mediaEl.src = src;
+                    } else if (dockType === 'link') {
+                        const { label, url } = (typeof value === 'object' && value !== null) ? value : { label: value, url: '' };
+                        el.innerText = label || '';
+                        el.setAttribute('data-dock-label', label || '');
+                        el.setAttribute('data-dock-url', url || '');
                     } else {
                         el.innerText = value;
                     }
