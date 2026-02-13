@@ -20,10 +20,7 @@
     };
 
     const globalMappings = {
-        'global_radius': '--radius-custom',
-        'hero_overlay_opacity': '--hero-overlay-opacity',
-        'header_height': '--header-height',
-        'content_top_offset': '--content-top-offset'
+        'global_radius': '--radius-custom'
     };
 
     function scanSections() {
@@ -53,22 +50,75 @@
             const root = document.documentElement;
             const isDark = root.classList.contains('dark');
             const currentTheme = isDark ? 'dark' : 'light';
-            
+
             if (key === 'theme') {
                 if (value === 'dark') { root.classList.add('dark'); root.style.colorScheme = 'dark'; }
                 else { root.classList.remove('dark'); root.style.colorScheme = 'light'; }
                 return;
             }
 
+            // Specific layout/design handlers
+            if (key === 'content_top_offset') {
+                root.style.setProperty('--content-top-offset', value + 'px');
+                return;
+            }
+
+            if (key === 'header_height') {
+                root.style.setProperty('--header-height', value + 'px');
+                return;
+            }
+
+            if (key === 'header_transparent') {
+                if (value === true) {
+                    root.style.setProperty('--header-bg', 'transparent');
+                    root.style.setProperty('--header-blur', 'none');
+                    root.style.setProperty('--header-border', 'none');
+                } else {
+                    root.style.removeProperty('--header-bg');
+                    root.style.removeProperty('--header-blur');
+                    root.style.removeProperty('--header-border');
+                }
+                return;
+            }
+
+            if (key === 'header_visible') {
+                const nav = document.querySelector('nav.fixed.top-0');
+                if (nav) nav.style.display = value ? 'flex' : 'none';
+                return;
+            }
+
+            if (key.startsWith('header_show_')) {
+                const elementMap = {
+                    'header_show_logo': '.relative.w-12.h-12',
+                    'header_show_title': 'span.text-2xl.font-serif',
+                    'header_show_tagline': 'span.text-\\[10px\\]',
+                    'header_show_button': 'button, .bg-primary'
+                };
+                const selector = elementMap[key];
+                if (selector) {
+                    const els = document.querySelectorAll(selector);
+                    els.forEach(el => el.style.display = value ? '' : 'none');
+                }
+                return;
+            }
+
+            if (key === 'hero_overlay_opacity') {
+                let opacity = parseFloat(value);
+                if (isNaN(opacity)) opacity = 0.8;
+                root.style.setProperty('--hero-overlay-start', `rgba(0, 0, 0, ${opacity})`);
+                root.style.setProperty('--hero-overlay-end', `rgba(0, 0, 0, ${opacity * 0.4})`);
+                return;
+            }
+
+            // Generic global mappings (radius, etc.)
             if (globalMappings[key]) {
-                const finalVal = (key === 'header_height' || key === 'content_top_offset') ? (value + 'px') : value;
-                root.style.setProperty(globalMappings[key], finalVal);
+                root.style.setProperty(globalMappings[key], value);
                 return;
             }
 
             const targetTheme = key.startsWith('dark') ? 'dark' : 'light';
             const cleanKey = key.replace('light_', '').replace('dark_', '');
-            
+
             if (targetTheme === currentTheme && themeMappings[cleanKey]) {
                 themeMappings[cleanKey].forEach(v => root.style.setProperty(v, value));
             }

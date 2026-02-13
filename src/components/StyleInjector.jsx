@@ -43,9 +43,28 @@ const StyleInjector = ({ siteSettings }) => {
     });
 
     if (settings.global_radius) root.style.setProperty('--radius-custom', settings.global_radius);
-    if (settings.hero_overlay_opacity !== undefined) root.style.setProperty('--hero-overlay-opacity', settings.hero_overlay_opacity);
+
+    // Hero overlay: convert opacity to rgba values used by Section.jsx gradient
+    if (settings.hero_overlay_opacity !== undefined) {
+      let opacity = parseFloat(settings.hero_overlay_opacity);
+      if (isNaN(opacity)) opacity = 0.8;
+      root.style.setProperty('--hero-overlay-start', `rgba(0, 0, 0, ${opacity})`);
+      root.style.setProperty('--hero-overlay-end', `rgba(0, 0, 0, ${opacity * 0.4})`);
+    }
+
     if (settings.content_top_offset !== undefined) root.style.setProperty('--content-top-offset', settings.content_top_offset + 'px');
     if (settings.header_height !== undefined) root.style.setProperty('--header-height', settings.header_height + 'px');
+
+    // Header transparency
+    if (settings.header_transparent === true) {
+      root.style.setProperty('--header-bg', 'transparent');
+      root.style.setProperty('--header-blur', 'none');
+      root.style.setProperty('--header-border', 'none');
+    } else if (settings.header_transparent === false) {
+      root.style.removeProperty('--header-bg');
+      root.style.removeProperty('--header-blur');
+      root.style.removeProperty('--header-border');
+    }
 
   }, [settings]);
 
